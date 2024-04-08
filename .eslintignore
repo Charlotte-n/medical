@@ -1,0 +1,4 @@
+# (不需要检查的)
+/node_modules
+/dist
+/.hbuilderx

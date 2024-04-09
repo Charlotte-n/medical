@@ -15,4 +15,5 @@ onHide(() => {
 </template>
 <style lang="scss">
 @import '@/uni_modules/uview-plus/theme.scss';
+@import '@/static/css/iconfont.css';
 </style>

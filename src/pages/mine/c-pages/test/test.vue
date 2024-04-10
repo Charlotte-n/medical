@@ -20,6 +20,7 @@
 <style scoped lang="scss">
 .container {
     height: 100vh;
+    margin: auto;
     background-color: #f0f0f0;
     .cards {
         padding: 30rpx;

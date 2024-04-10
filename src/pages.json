@@ -23,6 +23,12 @@
 			"style": {
 				"navigationBarTitleText": "我的"
 			}
+		},
+		{
+			"path": "pages/TransferPage/TransferPage"
+		},
+		{
+			"path": "pages/TransferPage/tran_cam"
 		}
 	],
 	"globalStyle": {

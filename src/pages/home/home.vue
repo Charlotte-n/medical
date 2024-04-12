@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import Style from '@/uni_modules/uview-plus/libs/mixin/style'
 
 const onPrescriptionCheck = () => {
     // 使用 uni.navigateTo 进行页面跳转
@@ -26,6 +26,18 @@ const onHeartRateCheck = () => {
         url: '/pages/TransferPage/TransferPage', // 页面路径，注意前面的斜杠和不需要写文件后缀
     })
 }
+uni.authorize({
+    scope: 'scope.userInfo',
+    success(res) {
+        console.log(res)
+        // 用户同意授权
+        // 在这里调用 uni.getUserInfo 获取用户信息
+    },
+    fail() {
+        // 用户拒绝授权
+        // 可以给出友好提示或再次请求授权
+    },
+})
 </script>
 
 <style scoped lang="scss">
@@ -51,16 +63,12 @@ button {
     padding: 10px 20px;
     font-size: 16px;
     color: #fff;
-    background-color: #1a73e8;
+    background-color: #1296db;
     border: none;
     border-radius: 4px;
     cursor: pointer;
     width: 200px; /* 设置按钮宽度 */
     height: 50px; /* 设置按钮高度 */
     line-height: 25px;
-}
-
-button:hover {
-    background-color: #1558b3;
 }
 </style>

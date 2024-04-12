@@ -3,7 +3,9 @@
         <!-- 头部用户信息 -->
         <view class="userinfo">
             <view class="avatar">
+                <u-avatar v-if="avatar" :src="avatar" size="60"></u-avatar>
                 <u-avatar
+                    v-else
                     size="60"
                     text="北"
                     fontSize="18"
@@ -12,8 +14,8 @@
             </view>
             <view>
                 <view>
-                    <text class="username">马如飞</text>
-                    <text class="sex">男</text>
+                    <text class="username">{{ nickName }}</text>
+                    <text class="sex">{{ gender === 0 ? '男' : '女' }}</text>
                     <text class="age">21岁</text>
                 </view>
             </view>
@@ -37,6 +39,10 @@
 
 <script setup lang="ts">
 import { MINE_LIST_ENUM, MineListData } from '@/data/mine'
+import { onMounted, ref } from 'vue'
+const nickName = ref('')
+const avatar = ref('')
+const gender = ref()
 
 const gotoDetail = (type: number) => {
     switch (type) {
@@ -51,6 +57,37 @@ const gotoDetail = (type: number) => {
             break
     }
 }
+//获取用户信息
+const getUserInfo = () => {
+    uni.login({
+        provider: 'weixin',
+        success: function (loginRes) {
+            if (loginRes.code) {
+                // 登录成功，通过 code 获取用户信息
+                uni.getUserInfo({
+                    provider: 'weixin',
+                    success: function (infoRes) {
+                        nickName.value = infoRes.userInfo.nickName
+                        avatar.value = infoRes.userInfo.avatarUrl
+                        gender.value = (infoRes.userInfo as any).gender
+                        // 在这里可以获取到用户的基本信息，例如昵称、头像等
+                    },
+                    fail: function (error) {
+                        console.log('获取用户信息失败:', error)
+                    },
+                })
+            } else {
+                console.log('登录失败！' + loginRes.errMsg)
+            }
+        },
+        fail: function (error) {
+            console.log('登录失败！' + error)
+        },
+    })
+}
+onMounted(() => {
+    getUserInfo()
+})
 </script>
 
 <style lang="scss" scoped>

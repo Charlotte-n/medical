@@ -56,6 +56,9 @@ dependencies:
   dayjs:
     specifier: ^1.11.10
     version: 1.11.10
+  echarts:
+    specifier: ^5.5.0
+    version: 5.5.0
   pinia:
     specifier: 2.0.31
     version: 2.0.31(typescript@4.9.5)(vue@3.4.21)
@@ -65,12 +68,18 @@ dependencies:
   sass-loader:
     specifier: ^14.1.1
     version: 14.1.1(sass@1.74.1)
+  tslib:
+    specifier: ^2.6.2
+    version: 2.6.2
   vue:
     specifier: ^3.3.11
     version: 3.4.21(typescript@4.9.5)
   vue-i18n:
     specifier: ^9.1.9
     version: 9.11.0(vue@3.4.21)
+  zrender:
+    specifier: ^5.5.0
+    version: 5.5.0
 
 devDependencies:
   '@dcloudio/types':
@@ -4124,6 +4133,13 @@ packages:
       webidl-conversions: 5.0.0
     dev: true
 
+  /echarts@5.5.0:
+    resolution: {integrity: sha512-rNYnNCzqDAPCr4m/fqyUFv7fD9qIsd50S6GDFgO1DxZhncCsNsG7IfUlAlvZe5oSEQxtsjnHiUuppzccry93Xw==}
+    dependencies:
+      tslib: 2.3.0
+      zrender: 5.5.0
+    dev: false
+
   /ee-first@1.1.1:
     resolution: {integrity: sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==}
     dev: true
@@ -6865,9 +6881,12 @@ packages:
       typescript: 4.9.5
     dev: true
 
+  /tslib@2.3.0:
+    resolution: {integrity: sha512-N82ooyxVNm6h1riLCoyS9e3fuJ3AMG2zIZs2Gd1ATcSFjSA23Q0fzjjZeh0jbJvWVDZ0cJT8yaNNaaXHzueNjg==}
+    dev: false
+
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
-    dev: true
 
   /type-check@0.4.0:
     resolution: {integrity: sha512-XleUoc9uwGXqjWwXaUTZAmzMcFZ5858QA2vvx1Ur5xIcixXIP+8LnFDgRplU30us6teqdlskFfu+ae4K79Ooew==}
@@ -7382,3 +7401,9 @@ packages:
     resolution: {integrity: sha512-rVksvsnNCdJ/ohGc6xgPwyN8eheCxsiLM8mxuE/t/mOVqJewPuO1miLpTHQiRgTKCLexL4MeAFVagts7HmNZ2Q==}
     engines: {node: '>=10'}
     dev: true
+
+  /zrender@5.5.0:
+    resolution: {integrity: sha512-O3MilSi/9mwoovx77m6ROZM7sXShR/O/JIanvzTwjN3FORfLSr81PsUGd7jlaYOeds9d8tw82oP44+3YucVo+w==}
+    dependencies:
+      tslib: 2.3.0
+    dev: false

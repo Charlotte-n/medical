@@ -19,15 +19,15 @@
                         :src="image"
                         class="u-loading-page__warpper__loading-icon__img"
                         mode="widthFit"
-						:style="{
-							width: $u.addUnit(iconSize),
-						    height: $u.addUnit(iconSize)
-						}"
+                        :style="{
+                            width: addUnit(iconSize),
+                            height: addUnit(iconSize),
+                        }"
                     ></image>
                     <u-loading-icon
                         v-else
                         :mode="loadingMode"
-                        :size="$u.addUnit(iconSize)"
+                        :size="addUnit(iconSize)"
                         :color="loadingColor"
                     ></u-loading-icon>
                 </view>
@@ -35,7 +35,7 @@
                     <text
                         class="u-loading-page__warpper__text"
                         :style="{
-                            fontSize: $u.addUnit(fontSize),
+                            fontSize: addUnit(fontSize),
                             color: color,
                         }"
                         >{{ loadingText }}</text
@@ -47,9 +47,10 @@
 </template>
 
 <script>
-import props from "./props.js";
-import mpMixin from '../../libs/mixin/mpMixin.js';
-import mixin from '../../libs/mixin/mixin.js';
+import props from './props.js'
+import mpMixin from '../../libs/mixin/mpMixin'
+import mixin from '../../libs/mixin/mixin'
+import { addUnit } from '../../libs/function/index'
 /**
  * loadingPage 加载动画
  * @description 警此组件为一个小动画，目前用在uView的loadmore加载更多和switch开关等组件的正在加载状态场景。
@@ -67,17 +68,19 @@ import mixin from '../../libs/mixin/mixin.js';
  * @example <u-loading mode="circle"></u-loading>
  */
 export default {
-    name: "u-loading-page",
+    name: 'u-loading-page',
     mixins: [mpMixin, mixin, props],
     data() {
-        return {};
+        return {}
     },
-    methods: {},
-};
+    methods: {
+        addUnit,
+    },
+}
 </script>
 
 <style lang="scss" scoped>
-@import "../../libs/css/components.scss";
+@import '../../libs/css/components.scss';
 
 $text-color: rgb(200, 200, 200) !default;
 $text-size: 19px !default;

@@ -17,13 +17,13 @@ import Style from '@/uni_modules/uview-plus/libs/mixin/style'
 const onPrescriptionCheck = () => {
     // 使用 uni.navigateTo 进行页面跳转
     uni.navigateTo({
-        url: '/pages/TransferPage/TransferPage', // 页面路径，注意前面的斜杠和不需要写文件后缀
+        url: '/subpages/TransferPage/tran_cam?type=1', // 页面路径，注意前面的斜杠和不需要写文件后缀
     })
 }
 const onHeartRateCheck = () => {
     // 使用 uni.navigateTo 进行页面跳转
     uni.navigateTo({
-        url: '/pages/TransferPage/TransferPage', // 页面路径，注意前面的斜杠和不需要写文件后缀
+        url: '/subpages/TransferPage/tran_cam?type=2', // 页面路径，注意前面的斜杠和不需要写文件后缀
     })
 }
 uni.authorize({

@@ -1,41 +1,54 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import LEchart from '@/uni_modules/lime-echart/components/l-echart/l-echart.vue'
+import LEchart from '@/subpages/bao/lime-echart/components/l-echart/l-echart.vue'
 import * as echarts from 'echarts'
 import { CanvasRenderer } from 'echarts/renderers'
 
 const chart = ref()
+const props = defineProps({
+    yData: {
+        type: Array,
+    },
+})
+const xData = [
+    0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57,
+    60, 63, 66, 69, 72, 75, 78, 81, 84, 87,
+]
 const init = () => {
     echarts.use([CanvasRenderer])
     chart.value.init(echarts)
     chart.value.setOption({
         xAxis: {
             type: 'category',
-            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+            data: xData,
         },
         yAxis: {
             type: 'value',
         },
         series: [
             {
-                data: [150, 230, 224, 218, 135, 147, 260],
+                data:
+                    typeof props.yData == 'string'
+                        ? JSON.parse(props.yData as any)
+                        : props.yData,
                 type: 'line',
             },
         ],
     })
 }
 onMounted(() => {
+    console.log(typeof props.yData)
     // 组件能被调用必须是组件的节点已经被渲染到页面上
     setTimeout(async () => {
         if (!chart.value) return
         init()
-    }, 3000)
+    }, 400)
 })
 </script>
 
 <template>
     <view class="container">
-        <l-echart ref="chart" class="chart-content"></l-echart>
+        <l-echart ref="chart" class="chart-content" @finished="init"></l-echart>
     </view>
 </template>
 

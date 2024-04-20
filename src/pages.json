@@ -7,6 +7,7 @@
 		"^u-([^-].*)": "@/uni_modules/uview-plus/components/u-$1/u-$1.vue"
 		}
 	},
+	"lazyCodeLoading": "requiredComponents",
 
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
@@ -23,37 +24,52 @@
 			"style": {
 				"navigationBarTitleText": "我的"
 			}
-		},
-		{
-			"path": "pages/TransferPage/TransferPage"
-		},
-		{
-			"path": "pages/TransferPage/tran_cam"
 		}
-      ,
-      {
-		  "path": "pages/mine/c-pages/profile/profile",
-		  "style": {
-			"navigationBarTitleText": "我的资料",
-			  "enablePullDownRefresh": true
-		  }
-	  }
-		,
+
+	],
+	"subPackages": [
 		{
-  "path": "pages/mine/c-pages/test/test",
-  "style": {
-    "navigationBarTitleText": "评测记录",
-    "enablePullDownRefresh": true
-  }
-}
-		,
+			"root": "subpages",
+			"pages": [
+				{
+					"path": "c-pages/showImage"
+
+				},
+				{
+					"path": "TransferPage/tran_cam"
+				},
+				{
+					"path": "TransferPage/TransferPage"
+				}
+			]
+		},
 		{
-  "path": "pages/mine/c-pages/admin/admin",
-  "style": {
-    "navigationBarTitleText": "管理员入口",
-    "enablePullDownRefresh": true
-  }
-}
+			"root": "subPage2",
+			"pages": [
+				{
+					"path": "c-pages/admin/admin",
+					"style": {
+						"navigationBarTitleText": "管理员入口",
+						"enablePullDownRefresh": true
+					}
+
+				},
+				{
+					"path": "c-pages/profile/profile",
+					"style": {
+						"navigationBarTitleText": "我的资料",
+						"enablePullDownRefresh": true
+					}
+				},
+				{
+					"path": "c-pages/test/test",
+					"style": {
+						"navigationBarTitleText": "评测记录",
+						"enablePullDownRefresh": true
+					}
+				}
+			]
+		}
 	],
 	"globalStyle": {
 		"navigationBarTextStyle": "black",
@@ -77,7 +93,7 @@
 				"iconPath": "static/tab/mine01.png",
 				"selectedIconPath": "static/tab/mine02.png"
 			}
-		]
-
+		],
+		"backgroundColor": "white"
 	}
 }

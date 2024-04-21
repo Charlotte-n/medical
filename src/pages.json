@@ -32,22 +32,29 @@
 			"root": "subpages",
 			"pages": [
 				{
-					"path": "c-pages/showImage"
+					"path": "c-pages/showImage",
+                  "style": {
+                    "navigationBarTitleText": "结果",
+                    "enablePullDownRefresh": true
+                  }
 
 				},
 				{
-					"path": "TransferPage/tran_cam"
+					"path": "TransferPage/tran_cam",
+                  "style": {
+                    "navigationBarTitleText": "使用须知",
+                    "enablePullDownRefresh": true
+                  }
 				},
 				{
-					"path": "TransferPage/TransferPage"
-				}
-			]
-		},
-		{
-			"root": "subPage2",
-			"pages": [
+					"path": "TransferPage/TransferPage",
+                  "style": {
+                    "navigationBarTitleText": "预览",
+                    "enablePullDownRefresh": true
+                  }
+				},
 				{
-					"path": "c-pages/admin/admin",
+					"path": "subPage2/c-pages/admin/admin",
 					"style": {
 						"navigationBarTitleText": "管理员入口",
 						"enablePullDownRefresh": true
@@ -55,14 +62,14 @@
 
 				},
 				{
-					"path": "c-pages/profile/profile",
+					"path": "subPage2/c-pages/profile/profile",
 					"style": {
 						"navigationBarTitleText": "我的资料",
 						"enablePullDownRefresh": true
 					}
 				},
 				{
-					"path": "c-pages/test/test",
+					"path": "subPage2/c-pages/test/test",
 					"style": {
 						"navigationBarTitleText": "评测记录",
 						"enablePullDownRefresh": true

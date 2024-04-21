@@ -1,6 +1,6 @@
 //拦截器
 //基地址
-const baseUrl = 'https://pcapi-xiaotuxian-front-devtest.itheima.net'
+const baseUrl = 'https://u241567-8fae-693a7f37.neimeng.seetacloud.com:6443'
 
 //拦截器
 const httpInterceptor = {

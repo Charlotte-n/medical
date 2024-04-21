@@ -3,19 +3,41 @@
         <!--        卡片-->
         <view class="cards">
             <view
-                v-for="item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
+                v-for="(item, index0) in data"
                 class="card-item"
+                :key="index0"
             >
-                <view class="card" :key="item">
-                    <text>2024-05-04</text>
+                <view class="card">
+                    <text>{{ item.time }}</text>
                     <text class="result">结果</text>
+                    <view>
+                        <Echart :yData="item.bvp" :width="330"></Echart>
+                    </view>
                 </view>
             </view>
         </view>
     </scroll-view>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+//获取内容
+import { http } from '@/services/http'
+import { onMounted, ref } from 'vue'
+import Echart from '@/components/echart/Echart.vue'
+
+const data = ref([] as any)
+const getHistoryContent = async () => {
+    const res = await http({
+        url: '//history',
+        method: 'GET',
+    })
+    data.value = res
+    console.log(res)
+}
+onMounted(() => {
+    getHistoryContent()
+})
+</script>
 
 <style scoped lang="scss">
 .container {

@@ -68,7 +68,7 @@ const confirmAction = () => {
             loading.value = true
             if (type.value == 1) {
                 await uni.uploadFile({
-                    url: 'https://u241567-91ae-dfbfcb8e.neimeng.seetacloud.com:6443/upload',
+                    url: 'https://u241567-8fae-693a7f37.neimeng.seetacloud.com:6443//upload',
                     filePath: res.tempFilePath,
                     name: 'file',
                     formData: {

@@ -9,6 +9,9 @@ const props = defineProps({
     yData: {
         type: Array,
     },
+    width: {
+        type: Number,
+    },
 })
 const xData = [
     0, 3, 6, 9, 12, 15, 18, 21, 24, 27, 30, 33, 36, 39, 42, 45, 48, 51, 54, 57,
@@ -37,7 +40,7 @@ const init = () => {
     })
 }
 onMounted(() => {
-    console.log(typeof props.yData)
+    console.log(typeof props.yData, props.yData)
     // 组件能被调用必须是组件的节点已经被渲染到页面上
     setTimeout(async () => {
         if (!chart.value) return
@@ -48,7 +51,16 @@ onMounted(() => {
 
 <template>
     <view class="container">
-        <l-echart ref="chart" class="chart-content" @finished="init"></l-echart>
+        <l-echart
+            ref="chart"
+            class="chart-content"
+            @finished="init"
+            :style="[
+                props.width
+                    ? { width: props.width + 'px' }
+                    : { width: '500px' },
+            ]"
+        ></l-echart>
     </view>
 </template>
 
@@ -58,7 +70,6 @@ onMounted(() => {
     justify-content: center;
     align-items: center;
     .chart-content {
-        width: 500px;
         height: 300px;
     }
 }

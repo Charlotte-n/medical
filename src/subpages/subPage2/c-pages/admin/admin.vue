@@ -2,20 +2,37 @@
     <scroll-view class="container" scroll-y="true">
         <!--        卡片-->
         <view class="cards">
-            <view
-                v-for="item in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]"
-                class="card-item"
-            >
-                <view class="card" :key="item">
-                    <text>2024-05-04</text>
-                    <text class="result">结果</text>
+            <view v-for="(item, index) in data" class="card-item">
+                <view class="card" :key="index">
+                    <text>{{ item.time }}</text>
+                    <text class="result"
+                        >{{ item.region }}疑似出现{{ item.thing }}</text
+                    >
                 </view>
             </view>
         </view>
     </scroll-view>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+const data = [
+    {
+        region: '河北',
+        time: '2022-04-02',
+        thing: '轻度事件',
+    },
+    {
+        region: '湖南',
+        time: '2022-04-05',
+        thing: '中度事件',
+    },
+    {
+        region: '海南',
+        time: '2022-03-02',
+        thing: '重度',
+    },
+]
+</script>
 
 <style scoped lang="scss">
 .container {

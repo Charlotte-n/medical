@@ -47,13 +47,13 @@ const gender = ref()
 const gotoDetail = (type: number) => {
     switch (type) {
         case MINE_LIST_ENUM.profile:
-            uni.navigateTo({ url: '/subPage2/c-pages/profile/profile' })
+            uni.navigateTo({ url: '/subpages/subPage2/c-pages/profile/profile' })
             break
         case MINE_LIST_ENUM.test:
-            uni.navigateTo({ url: '/subPage2/c-pages/test/test' })
+            uni.navigateTo({ url: '/subpages/subPage2/c-pages/test/test' })
             break
         case MINE_LIST_ENUM.admin:
-            uni.navigateTo({ url: '/subPage2/c-pages/admin/admin' })
+            uni.navigateTo({ url: '/subpages/subPage2/c-pages/admin/admin' })
             break
     }
 }
